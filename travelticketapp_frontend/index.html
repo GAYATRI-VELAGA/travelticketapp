@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Ticket App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">✈ TravelTicket</div>
+        <div class="api-status" id="apiStatus">Checking API...</div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">TRAVEL TICKET MARKETPLACE</p>
+                <h1>Book, sell and buy travel tickets easily.</h1>
+                <p class="hero-text">Connect your HTML, CSS and JavaScript frontend with your FastAPI + MySQL backend.</p>
+            </div>
+            <div class="hero-card">
+                <span>Available Tickets</span>
+                <strong id="ticketCount">0</strong>
+            </div>
+        </section>
+
+        <div id="message" class="message hidden"></div>
+
+        <section class="grid two">
+            <div class="card">
+                <h2>Register</h2>
+                <form id="registerForm">
+                    <input id="regName" placeholder="Full name" required>
+                    <input id="regEmail" type="email" placeholder="Email" required>
+                    <input id="regPhone" placeholder="Phone" required>
+                    <input id="regPassword" type="password" placeholder="Password" required>
+                    <button type="submit">Create Account</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input id="loginEmail" type="email" placeholder="Email" required>
+                    <input id="loginPassword" type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <div id="loggedUser" class="logged-user">Not logged in</div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-title">
+                <div>
+                    <h2>Create Ticket</h2>
+                    <p>Ticket will initially be created with BOOKED status.</p>
+                </div>
+            </div>
+
+            <form id="ticketForm" class="form-grid">
+                <input id="ownerId" type="number" placeholder="Owner ID" required>
+                <input id="passengerName" placeholder="Passenger name" required>
+                <input id="fromLocation" placeholder="From location" required>
+                <input id="toLocation" placeholder="To location" required>
+                <input id="travelDate" type="date" required>
+                <input id="travelTime" type="time" required>
+                <input id="seatNumber" placeholder="Seat number (e.g. A12)" required>
+                <input id="originalPrice" type="number" step="0.01" placeholder="Original price" required>
+                <button class="full" type="submit">Create Ticket</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <div class="section-title">
+                <div>
+                    <h2>Sell a Ticket</h2>
+                    <p>Change a BOOKED ticket to AVAILABLE.</p>
+                </div>
+            </div>
+            <form id="sellForm" class="form-grid compact">
+                <input id="sellTicketId" type="number" placeholder="Ticket ID" required>
+                <input id="sellingPrice" type="number" step="0.01" placeholder="Selling price" required>
+                <button type="submit">Put Ticket For Sale</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <div class="section-title">
+                <div>
+                    <h2>Available Tickets</h2>
+                    <p>Tickets currently available for purchase.</p>
+                </div>
+                <button id="refreshBtn" class="secondary" type="button">Refresh</button>
+            </div>
+            <div id="tickets" class="tickets"></div>
+        </section>
+    </main>
+
+    <footer>
+        TravelTicket App • HTML + CSS + JavaScript • FastAPI + MySQL
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
