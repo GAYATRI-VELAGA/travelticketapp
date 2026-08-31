@@ -4,3 +4,4 @@ sqlalchemy
 pymysql
 bcrypt
 python-multipart
+python-dotenv
